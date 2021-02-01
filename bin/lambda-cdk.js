@@ -6,7 +6,14 @@ const cdk = require('@aws-cdk/core');
 const { HelloLambdaCdkStack } = require('../lib/hello-lambda-cdk-stack');
 
 const getJson = jsonString => {
-    let json = {};
+    let json = {
+        environmentLabel: 'Dev',
+        env: { 
+            region: 'us-west-2',
+            account: '006684778752',
+            supportEmail: 'devTeam@nwea.org' 
+        } 
+    };
     try{ json = JSON.parse(jsonString); }
     catch(error) {
         console.log (`Invalid json string:  `, jsonString);
